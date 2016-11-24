@@ -1,0 +1,16 @@
+{
+  "title": "YDL Tracker",
+  "name": "js",
+  "version": "0.0.1",
+  "description": "Track youtube songs you want to download.",
+  "main": "index.js",
+  "author": "Quentin Fulsher",
+  "engines": {
+    "firefox": ">=38.0a1",
+    "fennec": ">=38.0a1"
+  },
+  "license": "MIT",
+  "keywords": [
+    "jetpack"
+  ]
+}
