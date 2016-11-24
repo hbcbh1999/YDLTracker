@@ -4,6 +4,9 @@ var tabs = require("sdk/tabs");
 var sdkPanels = require("sdk/panel");
 var ss = require("sdk/simple-storage");
 var data = require("sdk/self").data;
+var clipboard = require("sdk/clipboard");
+
+
 // If our persistent storage isn't initialized, create it
 if (!ss.storage.tracker) {
     ss.storage.tracker = [];
@@ -41,18 +44,19 @@ function handleChange(state) {
 function handleHide() {
     button.state('window', {checked: false});
 }
-/*
-YDLTrackerPanel.on("show", function() {
-    YDLTrackerPanel.port.emit("show");
-});
-*/
+
 YDLTrackerPanel.port.on("add", function() {
     ss.storage.tracker.push(tabs.activeTab.url);
     console.log("Added url");
 });
 
-
 YDLTrackerPanel.port.on("clip_cpy", function() {
+    var clipString = "";
+    for(i = 0; i < ss.storage.tracker.length; i++) {
+        clipString += ss.storage.tracker[i];
+        clipString += "\n";
+    }
+    clipboard.set(clipString);
     console.log("Clip cpy");
 });
 
