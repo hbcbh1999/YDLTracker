@@ -28,7 +28,9 @@ var button = ToggleButton({
 var YDLTrackerPanel = sdkPanels.Panel({
     contentURL: self.data.url("html/panel.html"),
     contentScriptFile: data.url("js/panel-functions.js"),
-    onHide: handleHide
+    onHide: handleHide,
+    width: 240,
+    height: 160,
 });
 
 // Handle show
@@ -60,6 +62,6 @@ YDLTrackerPanel.port.on("clip_cpy", function() {
     console.log("Clip cpy");
 });
 
-YDLTrackerPanel.port.on("log", function() {
-    console.log(ss.storage.tracker);
+YDLTrackerPanel.port.on("clear", function() {
+    ss.storage.tracker = [];
 });

@@ -1,25 +1,21 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/skeleton.css">
     </head>
     <body>
-        <ul>
-            <li>
-                <button id="add-button">
-                    <label>Add URL of Active Tab</label>
-                </button>
-           </li>
-           <li>
-               <button id="cpy-button">
-                   <label>Copy to Clipboard</label>
-               </button>
-           </li>
-           <li>
-               <button id="log-button">
-                   <label>Log tabs</label>
-               </button>
-           </li>
-        </ul>
+        <div style="text-align:center; padding-top:10px;">
+            <button id="add-button" class="button button-primary">
+                <label>Add URL of Active Tab</label>
+            </button>
+            <button id="cpy-button" class="button">
+                <label>Copy to Clipboard</label>
+            </button>
+            <button id="clear-button" class="button">
+                <label>Clear Stored URLs</label>
+            </button>
+        </div>
     </body>
 </html>
 
