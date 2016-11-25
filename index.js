@@ -17,9 +17,9 @@ var button = ToggleButton({
     id: "ydl-menu",
     label: "Open the YDLTracker menu",
     icon: {
-        "16": "./icons/icon-16.png",
-        "32": "./icons/icon-32.png",
-        "64": "./icons/icon-64.png"
+        "24": "./icons/Inconsistency_24.png",
+        "48": "./icons/Inconsistency_48.png",
+        "64": "./icons/Inconsistency_64.png"
     },
     onChange: handleChange
 });
@@ -30,7 +30,7 @@ var YDLTrackerPanel = sdkPanels.Panel({
     contentScriptFile: data.url("js/panel-functions.js"),
     onHide: handleHide,
     width: 240,
-    height: 160,
+    height: 180,
 });
 
 // Handle show
