@@ -1,4 +1,5 @@
 var self = require("sdk/self");
+var notifications = require("sdk/notifications");
 var { ToggleButton } = require("sdk/ui/button/toggle");
 var tabs = require("sdk/tabs");
 var sdkPanels = require("sdk/panel");
@@ -49,6 +50,9 @@ function handleHide() {
 
 YDLTrackerPanel.port.on("add", function() {
     ss.storage.tracker.push(tabs.activeTab.url);
+    notifications.notify({
+        title: "Added URL",
+    });
     console.log("Added url");
 });
 
@@ -59,9 +63,16 @@ YDLTrackerPanel.port.on("clip_cpy", function() {
         clipString += "\n";
     }
     clipboard.set(clipString);
+    notifications.notify({
+        title: "URLS Copied",
+        text: ("" + ss.storage.tracker.length + " urls copied to clipboard"),
+    });
     console.log("Clip cpy");
 });
 
 YDLTrackerPanel.port.on("clear", function() {
     ss.storage.tracker = [];
+    notifications.notify({
+        title: "URLS Cleared",
+    });
 });
